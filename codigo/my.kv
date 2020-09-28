@@ -1,0 +1,55 @@
+
+<Touch>:
+    canvas.before:
+        Color: 
+            rgba: 1,1,1,1
+    btn:btn
+    Button:
+        id:btn
+        text:'My Boton'
+<Button>:
+    font_size:35
+    color:0.3,0.6,0.7,1
+    size_hint: 0.3,0.5
+
+
+<FloatLayout>:
+    Button:
+        pos_hint: {'x':0.5,'top':1}
+        text: "Holi"
+    Button:
+        id:btn
+        pos_hint:{'y':0.3}
+        text: 'Cahi' if btn.state=='normal' else 'Down'
+        background_color: 0.3,0.4,0.5,1
+
+
+<MyGrid>
+
+    name: name
+    email: email
+    GridLayout: 
+        background_color: 0,0,0,0
+        cols:1 
+        size: root.width,root.height
+        GridLayout:
+            cols:2
+            Label:
+                text: 'Ohayo sekai: '
+                background_color: 0.3,0.4,0.5,1
+                font_color:0.3,0.4,0.5,1
+            
+
+            TextInput:
+                id:name
+                multiline: False
+
+            Label:
+                id:email
+                text: 'good morning WORLD'
+
+            TextInput:
+                multiline: False
+        Button:
+            text: 'submit'
+            on_press:root.btn()
