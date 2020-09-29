@@ -1,0 +1,34 @@
+Screen:
+    NavigationLayout:
+        ScreenManager:
+            Screen:
+                BoxLayout:
+                    orientation: "vertical"
+                    MDToolbar:
+                        title: "Distribuidores"
+                        left_action_items:[['menu',lambda x: nav_drawer.toggle_nav_drawer()]]
+                        elevation:5
+                    Widget:
+        MDNavigationDrawer:
+            id: nav_drawer
+            BoxLayout:
+                orientation:'vertical'
+                spacing: '6dp'
+                padding: '6dp'
+                Image:
+                    source: 'Imagenes/2.jpg'
+                MDLabel:
+                    text: 'Mi Tienda'
+                    font_style: 'Subtitle1'
+                    size_hint_y: None
+                    height: self.texture_size[1]
+                ScrollView:
+                    MDList:
+                        OneLineIconListItem:
+                            text: 'Distribuidores'
+                            IconLeftWidget:
+                                icon: 'store'
+                        OneLineIconListItem:
+                            text: 'Mis Pedidos'
+                            IconLeftWidget:
+                                icon: 'cart'

@@ -60,7 +60,7 @@ class MyGrid(Widget):
 
 class MyApp(App):
     def build(self):
-        return Touch()
+        return MyGrid()
 
 if __name__ == "__main__":
     MyApp().run()
