@@ -9,7 +9,7 @@ from kivy.core.window import Window
 from kivy.lang import Builder
 from kivymd.uix.imagelist import SmartTileWithLabel
 
-Window.size=(300,500)
+#Window.size=(300,500)
 
 
 class lista(ScrollView):
@@ -17,9 +17,9 @@ class lista(ScrollView):
         scroll = ScrollView()
         list_view= MDList()
         scroll.add_widget(list_view)
-        for i in range(20):
-            imagen = ImageLeftWidget(source='Imagenes/1.jpg')
-            items= TwoLineIconListItem(text='Distribuidor: '+str(i),secondary_text='Productos')
+        for i in ['Proesa',"Dipor",'Pronaca','LaFrabil','PlastiLopez']:
+            imagen = ImageLeftWidget(source=f'Imagenes/Proveedores/{i}.jpg')
+            items= TwoLineIconListItem(text=i,secondary_text='Productos')
             items.add_widget(imagen)
             #tile = SmartTileWithLabel(source="/Imagenes/1.jpg",text='Foto')
             #list_view.add_widget(tile)
