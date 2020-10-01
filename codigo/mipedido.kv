@@ -1,3 +1,5 @@
+#:import rgba kivy.utils.get_color_from_hex
+<Menu>:
 Screen:
     NavigationLayout:
         ScreenManager:
@@ -12,9 +14,38 @@ Screen:
                 
                     ScrollView:
                         MDGridLayout:
-                            cols:2
-
-                            
+                            cols:1
+                            padding: '6dp'
+                            MDCard:
+                                height: Window.height - 250
+                                width: Window.width*0.75
+                                orientation: "vertical"
+                                padding: "10dp"
+                                size_hint: .5, None
+                                pos_hint: {"top": 1, "center_y": .5}
+                                ScrollView:
+                                    MDList:
+                                        id:scrll_v
+                            RelativeLayout:
+                                MDGridLayout:
+                                    cols:2
+                                    padding:'10dp'
+                                    spacing:'10dp'
+                                    pos_hint: {"center_x": .5, "center_y": .5}
+                                    MDCard:
+                                        padding:'10dp'
+                                        MDGridLayout:
+                                            cols:1
+                                            id:conjuntos
+                                            MDLabel:
+                                                text:"Resumen"
+                                                halign:'justify'
+                                                font_style:'H6'
+                                    MDRectangleFlatButton:
+                                        padding:'10dp'
+                                        text: 'Enviar'
+                                        md_bg_color: rgba("#00587a")
+                                        text_color: rgba("#ffffff")
         MDNavigationDrawer:
             id: nav_drawer
             BoxLayout:
@@ -38,3 +69,16 @@ Screen:
                             text: 'Mis Pedidos'
                             IconLeftWidget:
                                 icon: 'cart'
+
+
+<Mylist>
+
+<Subtotales>:
+    MDLabel:
+        id:val
+        halign:'justify'
+        font_style:'Subtitle1'
+    MDLabel:
+        id:lbl
+        halign:'justify'
+        font_style:'Subtitle1'
