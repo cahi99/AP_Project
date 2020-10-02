@@ -1,6 +1,7 @@
 #:import rgba kivy.utils.get_color_from_hex
-<Menu>:
-Screen:
+#: include 'dist.kv'
+<Screen3>
+    name: 'Screen3'
     NavigationLayout:
         ScreenManager:
             Screen:
@@ -26,6 +27,7 @@ Screen:
                                 ScrollView:
                                     MDList:
                                         id:scrll_v
+                                    
                             RelativeLayout:
                                 MDGridLayout:
                                     cols:2
@@ -63,6 +65,7 @@ Screen:
                     MDList:
                         OneLineIconListItem:
                             text: 'Distribuidores'
+                            on_press: app.root.current='Screen1'
                             IconLeftWidget:
                                 icon: 'store'
                         OneLineIconListItem:
@@ -74,6 +77,7 @@ Screen:
 <Mylist>
 
 <Subtotales>:
+    cols:2
     MDLabel:
         id:val
         halign:'justify'
@@ -82,3 +86,4 @@ Screen:
         id:lbl
         halign:'justify'
         font_style:'Subtitle1'
+    

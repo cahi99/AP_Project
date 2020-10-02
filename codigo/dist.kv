@@ -1,4 +1,7 @@
-Screen:
+#: include 'productos.kv'
+#: include 'mipedido.kv'
+<Screen1@Screen>
+    name: 'Screen1'
     NavigationLayout:
         ScreenManager:
             Screen:
@@ -8,7 +11,8 @@ Screen:
                         title: "Distribuidores"
                         left_action_items:[['menu',lambda x: nav_drawer.toggle_nav_drawer()]]
                         elevation:5
-                    Widget:
+                    ScrollView:
+                        id:wig
         MDNavigationDrawer:
             id: nav_drawer
             BoxLayout:
@@ -26,6 +30,7 @@ Screen:
                     MDList:
                         OneLineIconListItem:
                             text: 'Distribuidores'
+                            on_press: app.root.current='Screen2'
                             IconLeftWidget:
                                 icon: 'store'
                         OneLineIconListItem:

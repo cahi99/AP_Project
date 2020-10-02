@@ -1,8 +1,17 @@
 from kivy.app import App
 from kivymd.app import MDApp
+from kivymd.uix.screen import Screen
 from kivymd.uix.card import MDCard
 from kivy.lang import Builder
 from kivymd.uix.menu import  RightContent
+from Mi_Pedido import Screen3
+
+
+class Screen2(Screen):
+    def __init__(self, *args, **kwargs):
+        super(Screen2,self).__init__(**kwargs)
+        for i,j in zip(['Plato 6','Plato 8','Plato 9'],['plato_6.jpg','plato_8.jpg','plato_9.jpg']):
+            self.ids.box.add_widget(MyCard(i,"codigo/Imagenes/Productos/"+j))
 
 class MyCard(MDCard):
     def __init__(self, *args, **kwargs):
@@ -17,12 +26,7 @@ class MyCard(MDCard):
 
 class ProductosApp(MDApp):
     def build(self):
-        DR =Builder.load_file('productos.kv')
-        for i,j in zip(['Plato 6','Plato 8','Plato 9'],['plato_6.jpg','plato_8.jpg','plato_9.jpg']):
-            DR.ids.box.add_widget(MyCard(i,"codigo/Imagenes/Productos/"+j))
-        #DR.ids.box.add_widget(MyCard("Plato 8","codigo/Imagenes/Productos/plato_8.jpg"))
-        #DR.ids.box.add_widget(MyCard("Plato 9","codigo/Imagenes/Productos/plato_9.jpg"))
-        return DR
+        return Screen2()
 
 if __name__ == '__main__':
     ProductosApp().run()

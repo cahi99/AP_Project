@@ -1,0 +1,214 @@
+#:import rgba kivy.utils.get_color_from_hex
+ScreenManager:
+    MenuScreen:
+        name:'menu'
+        id:'menu'
+        MDRectangleFlatButton:
+            text: 'ingresar'
+            pos_hint:{'center_x':0.5,"center_y":0.5}
+            on_press: root.current= 'Screen2'
+    Screen1:
+        name: 'Screen1'
+        NavigationLayout:
+            ScreenManager:
+                Screen:
+                    BoxLayout:
+                        orientation: "vertical"
+                        MDToolbar:
+                            title: "Distribuidores"
+                            left_action_items:[['menu',lambda x: nav_drawer1.toggle_nav_drawer()]]
+                            elevation:5
+                        ScrollView:
+                            id:wig
+            MDNavigationDrawer:
+                id: nav_drawer1
+                BoxLayout:
+                    orientation:'vertical'
+                    spacing: '6dp'
+                    padding: '6dp'
+                    Image:
+                        source: 'Imagenes/2.jpg'
+                    MDLabel:
+                        text: 'Mi Tienda'
+                        font_style: 'Subtitle1'
+                        size_hint_y: None
+                        height: self.texture_size[1]
+                    ScrollView:
+                        MDList:
+                            OneLineIconListItem:
+                                text: 'Distribuidores'
+                                IconLeftWidget:
+                                    icon: 'store'
+                                    on_press: root.current= 'Screen1'
+                            OneLineIconListItem:
+                                text: 'Mis Pedidos'
+                                IconLeftWidget:
+                                    icon: 'cart'
+    Screen2:
+        name: 'Screen2'
+        NavigationLayout:
+            ScreenManager:
+                Screen:
+                    BoxLayout:
+                        orientation: "vertical"
+                        MDToolbar:
+                            title: "Productos"
+                            left_action_items:[['menu',lambda x: nav_drawer2.toggle_nav_drawer()]]
+                            elevation:5
+                            MDIconButton:
+                                icon:'cart'
+                                on_press: root.current= 'Screen3'
+                    
+                        ScrollView:
+                            MDGridLayout:
+                                cols: 3
+                                id:box
+                                adaptive_height: True
+                                padding: dp(8), dp(8)
+                                spacing: dp(8)
+
+                                
+            MDNavigationDrawer:
+                id: nav_drawer2
+                BoxLayout:
+                    orientation:'vertical'
+                    spacing: '6dp'
+                    padding: '6dp'
+                    Image:
+                        source: 'Imagenes/2.jpg'
+                    MDLabel:
+                        text: 'Mi Tienda'
+                        font_style: 'Subtitle1'
+                        size_hint_y: None
+                        height: self.texture_size[1]
+                    ScrollView:
+                        MDList:
+                            OneLineIconListItem:
+                                text: 'Distribuidores'
+                                IconLeftWidget:
+                                    icon: 'store'
+                                    on_press: root.current= 'Screen1'
+                            OneLineIconListItem:
+                                text: 'Mis Pedidos'
+                                IconLeftWidget:
+                                    icon: 'cart'
+    Screen3:
+        name: 'Screen3'
+        NavigationLayout:
+            ScreenManager:
+                Screen:
+                    BoxLayout:
+                        id:boxi
+                        orientation: "vertical"
+                        MDToolbar:
+                            title: "Revisar Pedido"
+                            left_action_items:[['menu',lambda x: nav_drawer3.toggle_nav_drawer()]]
+                            elevation:5
+
+                        ScrollView:
+                            MDGridLayout:
+                                cols:1
+                                padding: '6dp'
+                                MDCard:
+                                    height: Window.height - 250
+                                    width: Window.width*0.75
+                                    orientation: "vertical"
+                                    padding: "10dp"
+                                    size_hint: .5, None
+                                    pos_hint: {"top": 1, "center_y": .5}
+                                    ScrollView:
+                                        MDList:
+                                            id:scrll_v
+
+                                RelativeLayout:
+                                    MDGridLayout:
+                                        cols:2
+                                        padding:'10dp'
+                                        spacing:'10dp'
+                                        pos_hint: {"center_x": .5, "center_y": .5}
+                                        MDCard:
+                                            padding:'10dp'
+                                            MDGridLayout:
+                                                cols:1
+                                                id:conjuntos
+                                                MDLabel:
+                                                    text:"Resumen"
+                                                    halign:'justify'
+                                                    font_style:'H6'
+                                        MDRectangleFlatButton:
+                                            padding:'10dp'
+                                            text: 'Enviar'
+                                            md_bg_color: rgba("#00587a")
+                                            text_color: rgba("#ffffff")
+            MDNavigationDrawer:
+                id: nav_drawer3
+                BoxLayout:
+                    orientation:'vertical'
+                    spacing: '6dp'
+                    padding: '6dp'
+                    Image:
+                        source: 'Imagenes/2.jpg'
+                    MDLabel:
+                        text: 'Mi Tienda'
+                        font_style: 'Subtitle1'
+                        size_hint_y: None
+                        height: self.texture_size[1]
+                    ScrollView:
+                        MDList:
+                            OneLineIconListItem:
+                                text: 'Distribuidores'
+                                IconLeftWidget:
+                                    icon: 'store'
+                                    on_press: root.current= 'Screen1'
+                            OneLineIconListItem:
+                                text: 'Mis Pedidos'
+                                IconLeftWidget:
+                                    icon: 'cart'
+
+
+<Lista>:
+<Subtotales>:
+    cols:2
+    MDLabel:
+        id:val
+        halign:'justify'
+        font_style:'Subtitle1'
+    MDLabel:
+        id:lbl
+        halign:'justify'
+        font_style:'Subtitle1'
+    
+
+
+<MyCard>:
+    orientation: "vertical"
+    padding: "10dp"
+    spading: "10dp"
+    size_hint: .5, None
+    size: "260dp", "180dp"
+    pos_hint: {"center_x": .5, "center_y": .5}
+    Image:
+        id: id_image
+        size_hint_y: None
+    MDGridLayout:
+        cols:2
+        adaptive_height: True
+        MDLabel:
+            id:n_producto
+            theme_text_color: "Secondary"
+            size_hint_y: None
+            height: self.texture_size[1]
+            pos_hint: {"center_x": .5, "center_y": .5}
+            hading: 'center'
+        RightContent:
+            MDIconButton:
+                id:plus
+                pos_hint: {"center_x": .5, "center_y": .5}
+            
+            MDLabel:
+                id:cero
+                theme_text_color: "Secondary"
+                hading: 'center'
+            MDIconButton:
+                id:minus
+                pos_hint: {"center_x": .5, "center_y": .5}

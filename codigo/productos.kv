@@ -1,19 +1,18 @@
 
-
-<Menu>:
-Screen:
+#: include 'dist.kv'
+#: include force 'mipedido.kv'
+<Screen2>
+    name: 'Screen2'
     NavigationLayout:
         ScreenManager:
             Screen:
                 BoxLayout:
-                    id:box
                     orientation: "vertical"
                     MDToolbar:
                         title: "Productos"
                         left_action_items:[['menu',lambda x: nav_drawer.toggle_nav_drawer()]]
-                        right_action_items:[['cart',lambda x: nav_drawer.toggle_nav_drawer()]]
+                        right_action_items:[['cart',lambda x: Screen3]]
                         elevation:5
-                
                     ScrollView:
                         MDGridLayout:
                             cols: 3
@@ -40,12 +39,14 @@ Screen:
                     MDList:
                         OneLineIconListItem:
                             text: 'Distribuidores'
+                            on_press: app.root.current='Screen1'
                             IconLeftWidget:
                                 icon: 'store'
                         OneLineIconListItem:
                             text: 'Mis Pedidos'
                             IconLeftWidget:
                                 icon: 'cart'
+
 
 <MyCard>:
     orientation: "vertical"

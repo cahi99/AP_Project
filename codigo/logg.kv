@@ -1,14 +1,14 @@
+#: include dist.kv
+#: include productos.kv
+#: include mipedido.kv
 ScreenManager:
     MenuScreen:
-    ProfileScreen:
-    DistribuidoresScreen:
-
 <MenuScreen>
     name:'menu'
     MDRectangleFlatButton:
         text: 'ingresar'
         pos_hint:{'center_x':0.5,"center_y":0.5}
-        on_press: root.manager.current= 'distribuidor'
+        on_press: root.manager.current= 'Screen2'
 <ProfileScreen>
     name: 'profile'
     MDLabel:
@@ -18,3 +18,5 @@ ScreenManager:
 <DistribuidoresScreen>
     name: 'distribuidor'
     
+
+
