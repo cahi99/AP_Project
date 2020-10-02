@@ -11,8 +11,14 @@
                     MDToolbar:
                         title: "Productos"
                         left_action_items:[['menu',lambda x: nav_drawer.toggle_nav_drawer()]]
-                        right_action_items:[['cart',lambda x: Screen3]]
                         elevation:5
+                        MDIconButton:
+                            icon: 'cart'
+                            theme_text_color: 'Custom'
+                            elevation: 0
+                            md_bg_color: app.theme_cls.primary_color
+                            on_press: app.root.current= 'Screen3'
+                
                     ScrollView:
                         MDGridLayout:
                             cols: 3
@@ -46,7 +52,6 @@
                             text: 'Mis Pedidos'
                             IconLeftWidget:
                                 icon: 'cart'
-
 
 <MyCard>:
     orientation: "vertical"
