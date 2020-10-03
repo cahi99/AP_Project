@@ -6,13 +6,17 @@ from kivymd.uix.list import TwoLineListItem
 from kivymd.uix.gridlayout import MDGridLayout
 from kivy.lang import Builder
 from kivymd.uix.menu import  RightContent
+import Productos as p
 
 class Screen3(Screen):
     def __init__(self, *args, **kwargs):
         super(Screen3,self).__init__(**kwargs)
-        for i in range(20):
-            self.ids.scrll_v.add_widget(Mylist('producto '+str(i)))
-        for i,j in zip(['Valor Subtotal','IVa','Valor Total','Valor Total + Iva'],['88','7','82','89']):
+        print('holita')
+        print(p.pedidos)
+        for i in p.pedidos:
+            self.ids.scrll_v.add_widget(Mylist('producto '+str(i[0])))
+        for i,j in zip(['Valor Subtotal','IVA','Valor Total','Valor Total + Iva'],['88','7','82','89']):
+            print('holata')
             self.ids.conjuntos.add_widget(Subtotales(i,j))
 
 class MyCard(MDCard):

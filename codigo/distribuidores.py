@@ -10,7 +10,7 @@ from kivy.lang import Builder
 from kivymd.uix.imagelist import SmartTileWithLabel
 from Productos import Screen2
 from Mi_Pedido import Screen3
-
+import Conexion as data
 #Window.size=(300,500)
 
 class Screen1(Screen):
