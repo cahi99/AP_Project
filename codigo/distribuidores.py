@@ -11,6 +11,8 @@ from kivymd.uix.imagelist import SmartTileWithLabel
 from Productos import Screen2
 from Mi_Pedido import Screen3
 import Conexion as data
+#from Conexion import Envio as LaData
+
 #Window.size=(300,500)
 
 class Screen1(Screen):
@@ -31,7 +33,6 @@ class Lista(MDList):
             self.add_widget(items)
     def change(self,*args):
         sm.current = 'Screen2'
-
 sm= ScreenManager()
 class DistApp(MDApp):
     def build(self):

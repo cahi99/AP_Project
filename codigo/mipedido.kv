@@ -12,6 +12,13 @@
                         title: "Revisar Pedido"
                         left_action_items:[['menu',lambda x: nav_drawer.toggle_nav_drawer()]]
                         elevation:5
+                        MDIconButton:
+                            id:carrito
+                            icon: 'undo'
+                            theme_text_color: 'Custom'
+                            elevation: 0
+                            md_bg_color: app.theme_cls.primary_color
+                            on_press: app.root.current= 'Screen2'
                 
                     ScrollView:
                         MDGridLayout:
@@ -44,10 +51,12 @@
                                                 halign:'justify'
                                                 font_style:'H6'
                                     MDRectangleFlatButton:
+                                        id: enviar
                                         padding:'10dp'
                                         text: 'Enviar'
                                         md_bg_color: rgba("#00587a")
                                         text_color: rgba("#ffffff")
+                                        on_press: root.Envio()
         MDNavigationDrawer:
             id: nav_drawer
             BoxLayout:
@@ -75,7 +84,6 @@
 
 
 <Mylist>
-
 <Subtotales>:
     cols:2
     MDLabel:

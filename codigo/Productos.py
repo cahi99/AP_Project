@@ -53,17 +53,21 @@ class MyCard(MDCard):
                 if icon== 'minus':
                     print(info2[i])
                     #self.ids.minus.disabled= False
-                    if info2[i]==0:
+                    if info2[i]==1:
+                        self.ids.minus.disabled= True
+                        info2[i]=0
+                    elif info2[i]==0:
                         self.ids.minus.disabled= True
                     else:
                         info2[i]-=1
                     print(info2[i])
                 self.ids.cero.text= str(info2[i])
-                if info2[i]!=0:
+                if info2[i]>=0:
                     for k in pedidos:
                         if k[0] == info.values[i][0]:
                             pedidos.remove(k)
-                    pedidos.append([*info.values[i],info2[i]])
+                    if info2[i] != 0:
+                        pedidos.append([*info.values[i],info2[i]])
                 
         print(pedidos)
 
