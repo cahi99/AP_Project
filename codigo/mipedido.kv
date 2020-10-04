@@ -56,7 +56,8 @@
                                         text: 'Enviar'
                                         md_bg_color: rgba("#00587a")
                                         text_color: rgba("#ffffff")
-                                        on_press: root.Envio()
+                                        on_press: 
+                                        on_release: root.show_alert_dialog()
         MDNavigationDrawer:
             id: nav_drawer
             BoxLayout:
@@ -82,8 +83,10 @@
                             IconLeftWidget:
                                 icon: 'cart'
 
-
 <Mylist>
+<MyButton>:
+    text:'ENVIAR'
+    on_press: root.Envio()
 <Subtotales>:
     cols:2
     MDLabel:

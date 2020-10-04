@@ -17,7 +17,7 @@ class Screen2(Screen):
     def __init__(self, *args, **kwargs):
         super(Screen2,self).__init__(**kwargs)
         for i,j in zip(info['Productos'],info['Archivo_Imagen']):
-            self.ids.box.add_widget(MyCard(i,"codigo/Imagenes/Productos/"+j))
+            self.ids.box.add_widget(MyCard(i,j))
 
 class MyCard(MDCard):
     value=0

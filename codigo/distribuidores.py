@@ -28,8 +28,6 @@ class Lista(MDList):
             items= TwoLineIconListItem(text=i,secondary_text='Productos')
             items.bind(on_press=  self.change)
             items.add_widget(imagen)
-            #tile = SmartTileWithLabel(source="/Imagenes/1.jpg",text='Foto')
-            #list_view.add_widget(tile)
             self.add_widget(items)
     def change(self,*args):
         sm.current = 'Screen2'
