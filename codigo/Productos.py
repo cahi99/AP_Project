@@ -4,18 +4,29 @@ from kivymd.uix.screen import Screen
 from kivymd.uix.card import MDCard
 from kivy.lang import Builder
 from kivymd.uix.menu import  RightContent
-from Mi_Pedido import Screen3
+#from Mi_Pedido import Screen3
 import Conexion as data
 import pandas as pd
-info=data.Datos()
+def recibir(laempresa):
+    global Empresa
+    Empresa=laempresa
+Empresa= 'credenciales'
+info=data.Datos(Empresa)
 info2=[]
 pedidos=[]
 for i in info:
     info2.append(0)
 
 class Screen2(Screen):
+    datita=""
     def __init__(self, *args, **kwargs):
         super(Screen2,self).__init__(**kwargs)
+        datita=args[0]
+        print(datita)
+        global info
+        print(datita)
+        info=data.Datos(datita)
+        self.ids.box.clear_widgets()
         for i,j in zip(info['Productos'],info['Archivo_Imagen']):
             self.ids.box.add_widget(MyCard(i,j))
 

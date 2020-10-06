@@ -72,9 +72,9 @@ class Screen3(Screen):
     def dialog_close(self, *args):
         self.dialog.dismiss(force=True)
 
-    def Envio(self,empresa='Datos Prueba',datos=conjunt):
+    def Envio(self,empresa='Productos',datos=conjunt):
         self.dialog.dismiss(force=True)
-        conecta=data.conecta(credenciales='codigo/credenciales.json')
+        conecta=data.conecta(credenciales=p.Empresa)
         sheet1= conecta.open(empresa).sheet1
         sheet = conecta.open(empresa).worksheet('Pedido')
         for i in datos:
