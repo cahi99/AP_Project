@@ -10,7 +10,7 @@ import pandas as pd
 def recibir(laempresa):
     global Empresa
     Empresa=laempresa
-Empresa= 'credenciales'
+Empresa= 'LaFrabil'
 info=data.Datos(Empresa)
 info2=[]
 pedidos=[]

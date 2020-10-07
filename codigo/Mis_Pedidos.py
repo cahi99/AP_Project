@@ -23,7 +23,7 @@ class Screen1(Screen):
     def __init__(self, *args, **kwargs):
         super(Screen1,self).__init__(**kwargs)
         entries = os.listdir('codigo/Empresas')
-        for i in [*entries,'Agregar.json']:
+        for i in [*entries]:
             self.ids.wig.add_widget(Lista(i))
 
 

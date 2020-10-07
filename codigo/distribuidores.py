@@ -25,7 +25,7 @@ class Screen1(Screen):
     def __init__(self, *args, **kwargs):
         super(Screen1,self).__init__(**kwargs)
         entries = os.listdir('codigo/Empresas')
-        for i in [*entries,'Agregar.json']:
+        for i in [*entries]:
             self.ids.wig.add_widget(Lista(i))
         Window.bind(on_keyboard=self.events)
         self.manager_open = False
@@ -34,9 +34,7 @@ class Screen1(Screen):
             select_path=self.select_path,
             ext=[".py", "kv"],
         )
-        self.file_manager.ext = [".json"]
-
-        
+        self.file_manager.ext = [".json"]        
     def file_manager_open(self):
         self.file_manager.show('/')  # output manager to the screen
         self.manager_open = True
@@ -45,7 +43,7 @@ class Screen1(Screen):
         shutil.copy(path, 'codigo/Empresas')
         self.ids.wig.clear_widgets()
         entries = os.listdir('codigo/Empresas')
-        for i in [*entries,'Agregar.json']:
+        for i in [*entries]:
             self.ids.wig.add_widget(Lista(i))
         toast(path)
     def exit_manager(self, *args):
