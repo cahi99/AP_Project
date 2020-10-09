@@ -51,14 +51,14 @@ class Screen5(Screen):
             conjunt.append(i)
             print(i+1)
             if i < len(dialog):
-                self.ids.scrll_v.add_widget(Mylist(str(dialog['Productos'][i+1])))
+                self.ids.scrll_v.add_widget(Mylist(str(dialog['Productos'][i+1]),str(dialog['Pedidos'][i+1])))
     
 
 class Mylist(TwoLineListItem):
     def __init__(self, *args, **kwargs):
         super(Mylist,self).__init__(**kwargs)
         self.text=args[0]
-        self.secondary_text= 'Distribuidores'
+        self.secondary_text= args[1]
 
 class PedidoApp(MDApp):
     def build(self):
