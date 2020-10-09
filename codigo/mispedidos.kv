@@ -1,7 +1,6 @@
-#: include 'productos.kv'
-#: include 'mipedido.kv'
-<Screen1@Screen>
-    name: 'Screen1'
+#: include 'pedido.kv'
+<Screen4@Screen>
+    name: 'Screen4'
     NavigationLayout:
         ScreenManager:
             Screen:
@@ -14,14 +13,6 @@
                     ScrollView:
                         MDList:
                             id:wig
-                BoxLayout:
-                    padding:'10dp'
-                    spacing:'10dp'
-                    MDFloatingActionButton:
-                        icon: "plus"
-                        elevation_normal: 12 
-                        md_bg_color: app.theme_cls.primary_color 
-                        on_press: root.file_manager_open()
         MDNavigationDrawer:
             id: nav_drawer
             BoxLayout:
@@ -46,6 +37,7 @@
                             text: 'Mis Pedidos'
                             IconLeftWidget:
                                 icon: 'cart'
-<Lista>:
+<Listadatos>
     id: objetito
-    on_press:root.change(self.text)
+    #on_press: self.change()
+    on_press: app.root.current='Screen5'

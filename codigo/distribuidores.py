@@ -9,6 +9,9 @@ from kivy.core.window import Window
 from kivy.lang import Builder
 from kivymd.uix.imagelist import SmartTileWithLabel
 from Mi_Pedido import Screen3
+from Mis_Pedidos import Screen4
+from Pedido import Screen5
+#from Pedido import Screen5
 import Productos
 from kivymd.toast import toast
 from kivymd.uix.filemanager import MDFileManager
@@ -74,8 +77,11 @@ sm= ScreenManager()
 
 class DistApp(MDApp):
     def build(self):
+        #sm.add_widget(Screen5(lst.change,name='Screen5'))
         sm.add_widget(Screen1(name='Screen1'))
         sm.add_widget(Screen3(name='Screen3'))
+        sm.add_widget(Screen4(name='Screen4'))
+        sm.add_widget(Screen5(name='Screen5'))
         sm.current = 'Screen1'
         return sm
 

@@ -11,8 +11,9 @@ def conecta(credenciales='LaFrabil'):
 
 def Datos(credenciales='LaFrabil',empresa='Productos'):
     sheet = conecta(credenciales).open(empresa).sheet1
-    hoja1= pd.DataFrame(sheet.get_all_values(),columns=sheet.get_all_values()[0])
-    hoja1=hoja1[1:]
+    hoja1= pd.DataFrame(sheet.get_all_values(),columns=sheet.get_all_values()[0],header=0)
+    hoja1.to_csv('codigo/Sin-Conexion/'+credenciales+'.csv')
+    hoja1=hoja1[0:]
     return hoja1
 
 

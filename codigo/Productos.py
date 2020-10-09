@@ -4,31 +4,52 @@ from kivymd.uix.screen import Screen
 from kivymd.uix.card import MDCard
 from kivy.lang import Builder
 from kivymd.uix.menu import  RightContent
+from kivy.core.window import Window
 #from Mi_Pedido import Screen3
 import Conexion as data
 import pandas as pd
 def recibir(laempresa):
     global Empresa
     Empresa=laempresa
-Empresa= 'LaFrabil'
-info=data.Datos(Empresa)
+Empresa= None
+#info=data.Datos(Empresa)
+info=None
 info2=[]
 pedidos=[]
-for i in info:
-    info2.append(0)
+
 
 class Screen2(Screen):
     datita=""
     def __init__(self, *args, **kwargs):
         super(Screen2,self).__init__(**kwargs)
+        global datita
         datita=args[0]
+        global Empresa
+        Empresa=datita
+    def on_enter(self, **kwargs):
+        global datita
         print(datita)
         global info
         print(datita)
-        info=data.Datos(datita)
-        self.ids.box.clear_widgets()
-        for i,j in zip(info['Productos'],info['Archivo_Imagen']):
-            self.ids.box.add_widget(MyCard(i,j))
+        try:
+            info=data.Datos(datita)
+            for i in info:
+                info2.append(0)
+            self.ids.box.clear_widgets()
+            for i,j,z in zip(info['Productos'],info['Archivo_Imagen'],info['Valor']):
+                self.ids.box.add_widget(MyCard(i,j,'$ '+z))
+        except:
+            info=pd.read_csv('codigo/Sin-Conexion/'+datita+'.csv')
+            info=info.drop('Unnamed: 0', axis=1)
+            info=info[1:]
+            print(info.columns)
+            print('no internet wey')
+            for i in info:
+                info2.append(0)
+            self.ids.box.clear_widgets()
+            print(info)
+            for i,j,z in zip(info['Productos'],info['Archivo_Imagen'],info['Valor']):
+                self.ids.box.add_widget(MyCard(i,j,'$ '+str(z)))
 
 class MyCard(MDCard):
     value=0
@@ -39,6 +60,7 @@ class MyCard(MDCard):
         self.ids.plus.icon='plus'
         self.ids.cero.text='0'
         self.ids.minus.icon='minus'
+        self.ids.precio.text=args[2]
     
     def control_productos(self,nombre,icon):
         print(nombre)
@@ -47,6 +69,7 @@ class MyCard(MDCard):
         if self.ids.cero.text=='0':
             print('entro wey')
         for i in range(len(info)):
+            print(info['Productos'])
             if info['Productos'][i+1]== nombre:
                 self.ids.minus.disabled= False
                 self.ids.plus.disabled= False

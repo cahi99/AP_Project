@@ -22,7 +22,7 @@
                 
                     ScrollView:
                         MDGridLayout:
-                            cols: 3
+                            cols: int(Window.width/260)
                             id:box
                             adaptive_height: True
                             padding: dp(8), dp(8)
@@ -50,6 +50,11 @@
                             IconLeftWidget:
                                 icon: 'store'
                         OneLineIconListItem:
+                            text: 'Mis Pedidos'
+                            on_press: app.root.current='Screen4'
+                            IconLeftWidget:
+                                icon: 'archive'
+                        OneLineIconListItem:
                             text: 'Salir'
                             IconLeftWidget:
                                 icon: 'close'
@@ -61,6 +66,11 @@
     size_hint: .5, None
     size: "260dp", "180dp"
     pos_hint: {"center_x": .5, "center_y": .5}
+    
+    MDLabel:
+        id:precio
+        font_style:'H6'
+        hading: 'left'
     AsyncImage:
         id: id_image
         size_hint_y: None

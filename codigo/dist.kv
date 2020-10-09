@@ -1,5 +1,6 @@
 #: include 'productos.kv'
 #: include 'mipedido.kv'
+#: include 'mispedidos.kv'
 <Screen1@Screen>
     name: 'Screen1'
     NavigationLayout:
@@ -42,6 +43,11 @@
                             on_press: app.root.current='Screen1'
                             IconLeftWidget:
                                 icon: 'store'
+                        OneLineIconListItem:
+                            text: 'Mis Pedidos'
+                            on_press: app.root.current='Screen4'
+                            IconLeftWidget:
+                                icon: 'archive'
                         OneLineIconListItem:
                             text: 'Salir'
                             IconLeftWidget:

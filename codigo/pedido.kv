@@ -1,7 +1,6 @@
 #:import rgba kivy.utils.get_color_from_hex
-#: include 'dist.kv'
-<Screen3>
-    name: 'Screen3'
+<Screen5@Screen>
+    name: 'Screen5'
     NavigationLayout:
         ScreenManager:
             Screen:
@@ -18,14 +17,13 @@
                             theme_text_color: 'Custom'
                             elevation: 0
                             md_bg_color: app.theme_cls.primary_color
-                            on_press: app.root.current= 'Screen2'
                 
                     ScrollView:
                         MDGridLayout:
                             cols:1
                             padding: '6dp'
                             MDCard:
-                                height: Window.height - 250
+                                height: Window.height
                                 width: Window.width*0.75
                                 orientation: "vertical"
                                 padding: "10dp"
@@ -34,30 +32,7 @@
                                 ScrollView:
                                     MDList:
                                         id:scrll_v
-                                    
-                            RelativeLayout:
-                                MDGridLayout:
-                                    cols:2
-                                    padding:'10dp'
-                                    spacing:'10dp'
-                                    pos_hint: {"center_x": .5, "center_y": .5}
-                                    MDCard:
-                                        padding:'10dp'
-                                        MDGridLayout:
-                                            cols:1
-                                            id:conjuntos
-                                            MDLabel:
-                                                text:"Resumen"
-                                                halign:'justify'
-                                                font_style:'H6'
-                                    MDRectangleFlatButton:
-                                        id: enviar
-                                        padding:'10dp'
-                                        text: 'Enviar'
-                                        md_bg_color: rgba("#00587a")
-                                        text_color: rgba("#ffffff")
-                                        on_press: 
-                                        on_release: root.show_alert_dialog()
+
         MDNavigationDrawer:
             id: nav_drawer
             BoxLayout:
@@ -79,35 +54,7 @@
                             IconLeftWidget:
                                 icon: 'store'
                         OneLineIconListItem:
-                            text: 'Mis Pedidos'
-                            on_press: app.root.current='Screen4'
-                            IconLeftWidget:
-                                icon: 'archive'
-                        OneLineIconListItem:
                             text: 'Salir'
                             IconLeftWidget:
                                 icon: 'close'
 
-<Mylist>
-<Content>
-    id:conten_text
-    hint_text: "Contraseña"
-    password: True
-    required: True
-    helper_text_mode: "on_focus"
-    helper_text: root.text
-
-<MyButton>:
-    text:'ENVIAR'
-    on_press: root.Envio()
-<Subtotales>:
-    cols:2
-    MDLabel:
-        id:val
-        halign:'justify'
-        font_style:'Subtitle1'
-    MDLabel:
-        id:lbl
-        halign:'justify'
-        font_style:'Subtitle1'
-    
